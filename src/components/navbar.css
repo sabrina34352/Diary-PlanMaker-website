@@ -1,0 +1,36 @@
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    border: 2px solid #F4EEFF;
+    border-radius: 15px;
+}
+
+.nav-links {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    padding: 13px;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
+.nav-links:hover {
+    background-color: bisque;
+    opacity: 0.3;
+    color: black;
+}
+
+.Welcome {
+    padding-left: 3%;
+    font-size: 40px;
+    margin-top: 5%;
+}
+
+.description {
+    font-size: 20px;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 60%;
+
+}
