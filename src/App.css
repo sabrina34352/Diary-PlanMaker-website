@@ -1,5 +1,6 @@
 body {
   background-color: #252A34;
+  margin-bottom:0;
 }
 
 
@@ -7,4 +8,13 @@ body {
   color: #b8b8bb;
   font-family: "Century Gothic", sans-serif;
   line-height: 1.5;
+}
+
+.WholePage{
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content-wrap{
+  flex:1;
 }
