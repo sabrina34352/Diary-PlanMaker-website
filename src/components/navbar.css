@@ -1,24 +1,36 @@
+/*remember that shit bruh*/
+/* :root{
+    --mainColor:#303841;
+    --hoverColor: #3A4750;
+    --borderColor: #00ADB5;
+    --fontColor: #D1D4C9;
+    font-family: "Century Gothic", sans-serif;
+} */
+
+
+body{
+    margin-top:0;
+    padding:0;
+}
 #navbar {
     display: flex;
     justify-content: space-around;
     padding: 8px 0;
-    border: 2px solid #F4EEFF;
-    border-radius: 15px;
+    background-color:var(--hoverColor);
 }
 
 .nav-links {
     text-decoration: none;
     font-size: 20px;
-    color: white;
+    color: var(--fontColor);
     padding: 13px;
     border: 2px solid white;
     border-radius: 15px;
 }
 
 .nav-links:hover {
-    background-color: bisque;
-    opacity: 0.3;
-    color: black;
+    background-color: var(--mainColor);
+    
 }
 
 .Welcome {
@@ -32,5 +44,15 @@
     align-items: center;
     margin: 0 auto;
     max-width: 60%;
-
+}
+#borger{
+    color:var(--fontColor);
+    background-color:var(--mainColor);
+    font-size: 20px;
+    border-radius:15px;
+}
+@media screen and (max-width:760px){
+    #borger{
+        display:none;
+    }
 }

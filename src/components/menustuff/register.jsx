@@ -31,7 +31,7 @@ var emailInput=<input type="text" id = "UserEmail" style = {forInput}placeholder
 var EnterButton = <button style={forButton}> Enter</button>
  
 //main function
-function signIn() {
+function Register() {
     return (
         <div>
             <h1>signing IN</h1>
@@ -46,7 +46,7 @@ function signIn() {
                 {ageInput}
 
                 
-                <p clasName="nandsn">Email:</p>  
+                <p className="nandsn">Email:</p>  
                 {emailInput}
             </div>
             {EnterButton}
@@ -54,4 +54,4 @@ function signIn() {
     )
 }
 
-export default signIn
+export default Register

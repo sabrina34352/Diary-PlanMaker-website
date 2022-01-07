@@ -1,15 +1,22 @@
-body {
-  background-color: #252A34;
-  margin-bottom:0;
+
+:root{
+    --mainColor:#303841;
+    --hoverColor: #3A4750;
+    --borderColor: #00ADB5;
+    --fontColor: #D1D4C9;
+    font-family: "Century Gothic", sans-serif;
 }
 
-
 * {
-  color: #b8b8bb;
-  font-family: "Century Gothic", sans-serif;
+  color: var(--fontColor);
+  
   line-height: 1.5;
 }
 
+body {
+  background-color: var(--mainColor);
+  margin-bottom:0;
+}
 .WholePage{
   display:flex;
   flex-direction: column;
