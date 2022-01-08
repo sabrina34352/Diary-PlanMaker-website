@@ -10,8 +10,8 @@ const MenuItems = [
     class: "nav-links",
   },
   {
-    title: "menu",
-    link: "menu",
+    title: "Info",
+    link: "Info",
     class: "nav-links",
   },
   {
@@ -55,32 +55,34 @@ function Navbar() {
   return (
     <>
       <div id="navbar">
-        <FaUserSecret className="IncognitoLogo" />
-        <div className="borgerHolder">
-          <button id="borger" onClick={() => setClicked(!clicked)}>
-            {" "}
-            borgar
-          </button>
-        </div>
-
-        <DesktopMenu />
-        {clicked && (
-          <div className="HolderForMenuPhone">
-            <div className="MenuStuffPhone">
-              {MenuItems.map((item, index) => {
-                return (
-                  <button
-                    key={index}
-                    className={item.class}
-                    onClick={() => setClicked(!clicked)}
-                  >
-                    <Link to={item.link}>{item.title}</Link>
-                  </button>
-                );
-              })}
-            </div>
+        <div className="navbarChild">
+          <FaUserSecret className="IncognitoLogo" />
+          <div className="borgerHolder">
+            <button id="borger" onClick={() => setClicked(!clicked)}>
+              {" "}
+              borgar
+            </button>
           </div>
-        )}
+
+          <DesktopMenu />
+          {clicked && (
+            <div className="HolderForMenuPhone">
+              <div className="MenuStuffPhone">
+                {MenuItems.map((item, index) => {
+                  return (
+                    <button
+                      key={index}
+                      className={item.class}
+                      onClick={() => setClicked(!clicked)}
+                    >
+                      <Link to={item.link}>{item.title}</Link>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

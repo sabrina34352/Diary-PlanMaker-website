@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../App.css";
 import Photo from "../../photos/night-vision-goggles-isolated-on-260nw-31342912.jpg";
 import { FcNext } from "react-icons/fc";
-
-const welcome = {
-  paddingLeft: "2%",
-  fontSize: "40px",
-  margin: "15px 5% 15px",
-};
 
 const veshiNaProdaju = [
   {
@@ -64,40 +58,40 @@ const buttonMinimalStyle = {
   border: "none",
   outline: "none",
   background: "none",
-  textDecoration: "underline",
+  textDecoration: "underline"
 };
 
 const NextItemButton = {
   position: "absolute",
   display: "inline",
-  right: "6%",
+  right: "0",
   top: "40%",
   padding: "15px",
-  border: "2px solid white",
   cursor: "pointer",
+  backgroundColor: "var(--mainColor)",
 };
-
-const SellsOfTheMonthButton = {
-  color: "var(--borderColor)",
-  padding: "0 20px",
+const Font = {
+  color: "var(--mainColor)",
   fontSize: "20px",
-  cursor: "pointer",
 };
 
 function SearchBar() {
   const [searchInfo, setSearchInfo] = useState(" ");
   return (
     <div>
-      <div
-        style={{ position: "relative", display: "flex", margin: " 15px 5%" }}
-      >
+      <div className="SearchThings">
         <input
+          style={Font}
           type="text"
           id="Searching"
           placeholder="search"
           onChange={(event) => setSearchInfo(event.target.value)}
         />
-        <button id="searchButton" onClick={() => console.log(searchInfo)}>
+        <button
+          style={Font}
+          id="searchButton"
+          onClick={() => console.log(searchInfo)}
+        >
           {" "}
           Search
         </button>
@@ -111,12 +105,12 @@ function SellsOfTheMonth() {
   return (
     <>
       <div style={{ marginTop: "6em" }}>
-        <h2 style={welcome}>Best Sells Of the Month</h2>
+        <h1>Best Sells Of the Month</h1>
         <div className="GridHolderForSelling">
           <div className="GridHolderForVeshi">
             {veshiNaProdaju.slice(0, 3).map((item, index) => {
               return (
-                <div key={index} className="GridVeshi">
+                <div key={index} className="GridVeshi" style={Cursor}>
                   <p>{item.name}</p>
                   <p>{item.Prize}</p>
                   <p>
@@ -149,12 +143,9 @@ function SellsOfTheMonth() {
                   );
                 })}
           </div>
-          <button
-            style={SellsOfTheMonthButton}
-            onClick={() => setSeeMore(!seeMore)}
-          >
-            See More
-          </button>
+            <button className="seeMore" onClick={() => setSeeMore(!seeMore)}>
+              {seeMore ? "see Less" : "see More"}
+            </button>
         </div>
       </div>
     </>
@@ -165,22 +156,28 @@ function Sections() {
   return (
     <>
       <div style={{ marginTop: "6em" }}>
-        <h1 style={welcome}>All sections</h1>
+        <h1>All sections</h1>
         <div className="HolderForSections">
-          <div className="GridHolderForVeshi">
+          <div className="GridHolderForVeshi"
+          id="SectionsHolderForVeshi"
+          style={{gap:"3em"}}
+          >
             {veshiNaProdaju.map((item, index) => {
               return (
-                <div key={index} className="GridVeshi">
+                <div
+                  key={index}
+                  className="GridVeshiSections"
+                  
+                  style={{
+                    border: "5px solid var(--borderColor)",
+                    textAlign: " center",
+                    padding: "15px",
+                    cursor: "pointer",
+                  }}
+                >
                   <p>{item.name}</p>
-                  <p>{item.Prize}</p>
-                  <p>
-                    {item.Description.slice(0, 100)}
-                    <button style={buttonMinimalStyle}>
-                      <b>Read More</b>
-                    </button>
-                  </p>
+                  
                   <img src={item.image} alt="Item on sale" />
-                  <button style={SellsOfTheMonthButton}>See More</button>
                 </div>
               );
             })}
@@ -191,6 +188,9 @@ function Sections() {
   );
 }
 
+const Cursor = {
+  cursor: "pointer",
+};
 // function Scrolling(sizeOfWindow, elementsSize) {
 //   if(sizeOfWindow &&elementsSize){
 //     console.log(elementsSize.current.getBoundingClientRect().width)
@@ -213,12 +213,13 @@ function CollectionOfStuff() {
   // }, []);
   return (
     <>
-      <div className="HolderForButtonAndMenu">
+      <div className="HolderForButtonAndMenu" style={{ marginTop: "6em" }}>
+        <h1> Most Searched</h1>
         <div className="HolderForSelling">
           <div className="HolderForVeshi">
             {veshiNaProdaju.map((item, index) => {
               return (
-                <div key={index} className="Veshi">
+                <div key={index} className="Veshi" style={Cursor}>
                   <p>{item.name}</p>
                   <p>{item.Prize}</p>
                   <p>
@@ -244,13 +245,13 @@ function CollectionOfStuff() {
 
 function home() {
   return (
-    <div className="wrapper">
+    <div className="wrapper" style={{ margin: "5%" }}>
       <SearchBar />
-      <h1 className="Welcome" style={welcome}>
-        online market for hackers
-      </h1>
-      <CollectionOfStuff />
+      <h2 className="Welcome">
+        <b>online shop for hackers</b>
+      </h2>
       <SellsOfTheMonth />
+      <CollectionOfStuff />
       <Sections />
     </div>
   );

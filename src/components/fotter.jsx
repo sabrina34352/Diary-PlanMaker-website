@@ -18,23 +18,23 @@ const MainContainer={
 function fotter() {
   return (
     <footer className="footer">
-      <hr />
+      <hr width="90%"/>
       <div style={footerStyle}>
         <div style={MainContainer}>
           <div>
-            <p>Company</p>
+            <h3>Company</h3>
             <p>About us</p>
             <p>Careers</p>
             <p>Work Since 1999</p>
           </div>
           <div>
-            <p>Learn</p>
+            <h3>Learn</h3>
             <p> Ethnical hacking</p>
             <p> Computers</p>
             <p> Languages</p>
           </div>
           <div>
-            <p>Contacts</p>
+            <h3>Contacts</h3>
 
             <p>
               <a
@@ -57,7 +57,7 @@ function fotter() {
             </p>
           </div>
           <div>
-            <p>Contribute</p>
+            <h3>Contribute</h3>
             <p>Internship</p>
             <p>
               <a href="/#" rel="noreferrer">
