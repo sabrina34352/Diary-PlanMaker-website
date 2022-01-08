@@ -6,53 +6,160 @@
     --fontColor: #D1D4C9;
     font-family: "Century Gothic", sans-serif;
 } */
+@keyframes dropDown {
+  0%{
+    height:0;
+    opacity: 0;
+  }
+  100%{
+    height:85%;
+    opacity: 1;
+  }
+  
+}
 
 
-body{
-    margin-top:0;
-    padding:0;
+body {
+  margin: 0;
+  padding: 0;
 }
 #navbar {
-    display: flex;
-    justify-content: space-around;
-    padding: 8px 0;
-    background-color:var(--hoverColor);
+  background-color: var(--borderColor);
+}
+.HolderForMenu {
+  text-align: end;
+}
+#MenuStuff {
+  display: inline-flex;
+  margin-top: 20px;
 }
 
 .nav-links {
-    text-decoration: none;
-    font-size: 20px;
-    color: var(--fontColor);
-    padding: 13px;
-    border: 2px solid white;
-    border-radius: 15px;
+  text-decoration: none;
+  font-size: 20px;
+  color: var(--fontColor);
+  border: none;
+  border-right: 2px solid var(--mainColor);
+  padding: 0 8px;
+  background: none;
+  outline: none;
 }
 
 .nav-links:hover {
-    background-color: var(--mainColor);
-    
+  background-color: var(--mainColor);
 }
 
-.Welcome {
-    padding-left: 3%;
-    font-size: 40px;
-    margin-top: 5%;
+.IncognitoLogo {
+  transform: scale(2.2);
+  position: absolute;
+  margin: 20px;
 }
 
-.description {
-    font-size: 20px;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 60%;
+#borger {
+  color: var(--fontColor);
+  background-color: var(--mainColor);
+  font-size: 20px;
+  padding: 8px;
 }
-#borger{
-    color:var(--fontColor);
-    background-color:var(--mainColor);
-    font-size: 20px;
-    border-radius:15px;
+.borgerHolder {
+  display: none;
+  text-align: end;
 }
-@media screen and (max-width:760px){
-    #borger{
-        display:none;
-    }
+
+.MenuStuffPhone {
+  text-align: end;
+  display: none;
+  position: relative;
+}
+.HolderForMenuPhone {
+  text-align: end;
+  position: absolute;
+  width: 100%;
+  background-color: var(--borderColor);
+  z-index: 1;
+}
+.HolderForSelling {
+  display: flex;
+  border: 10px solid var(--borderColor);
+  position: relative;
+  margin: 0 5%;
+  height: 400px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+.HolderForVeshi {
+  display: flex;
+  position: absolute;
+  z-index: -1;
+}
+
+.HolderForButtonAndMenu {
+  position: relative;
+}
+
+.HolderForMenu::-webkit-scrollbar {
+  width: 0;
+}
+.Veshi {
+  border-right: 2px solid var(--borderColor);
+  padding: 14px;
+}
+
+#Searching {
+  width: 100%;
+  height: 30px;
+  color: var(--mainColor);
+}
+
+#searchButton {
+  position: absolute;
+  right: 0;
+  padding: 6px;
+  color: black;
+}
+.GridHolderForSelling{
+  text-align: center;
+  margin:0 5%;
+  border:5px solid var(--borderColor);
+  position:relative;
+}
+.GridHolderForVeshi{
+  display:inline-grid;
+  grid-template-columns: repeat(3,minmax(100px, 1fr));
+  margin: 0 5%;
+}
+
+
+
+.GridVeshi{
+  border:5px solid var(--borderColor);
+  text-align: center;
+  margin:7%;
+}
+.GridVeshi img{
+  width:90%;
+}
+
+#Secondary{
+  animation: dropDown 1s ease;
+  position:relative;
+}
+
+@media screen and (max-width: 760px) {
+  .borgerHolder {
+    display: block;
+  }
+
+  .MenuStuffPhone {
+    display: inline-grid;
+  }
+
+  .HolderForMenu {
+    display: none;
+  }
+  .GridHolderForVeshi{
+    grid-template-columns: repeat(auto-fit, 95%);
+  }
 }

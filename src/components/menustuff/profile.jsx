@@ -1,6 +1,6 @@
 //rfce
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 export function SignIn() {
   return (
@@ -21,6 +21,10 @@ export function Profile() {
   return (
     <div>
       <h1 className="profile">Profiles lol</h1>
+      <div>
+        <Link to="SignIn">Sign In</Link>
+        <Link to="SignUp">Sign Up</Link>
+      </div>
       <Outlet />
     </div>
   );

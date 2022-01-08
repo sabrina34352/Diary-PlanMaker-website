@@ -1,8 +1,7 @@
 .footer img{
-    
     margin-left:20px;
     filter:invert(0.7);
-    
+    margin-top:10px;
 }
 .footer img:hover{
     transform: scale(1.1);
