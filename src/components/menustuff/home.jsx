@@ -58,20 +58,11 @@ const buttonMinimalStyle = {
   border: "none",
   outline: "none",
   background: "none",
-  textDecoration: "underline"
+  textDecoration: "underline",
 };
 
-const NextItemButton = {
-  position: "absolute",
-  display: "inline",
-  right: "0",
-  top: "40%",
-  padding: "15px",
-  cursor: "pointer",
-  backgroundColor: "var(--mainColor)",
-};
 const Font = {
-  color: "var(--mainColor)",
+  
   fontSize: "20px",
 };
 
@@ -108,7 +99,7 @@ function SellsOfTheMonth() {
         <h1>Best Sells Of the Month</h1>
         <div className="GridHolderForSelling">
           <div className="GridHolderForVeshi">
-            {veshiNaProdaju.slice(0, 3).map((item, index) => {
+            {veshiNaProdaju.slice(0, 4).map((item, index) => {
               return (
                 <div key={index} className="GridVeshi" style={Cursor}>
                   <p>{item.name}</p>
@@ -129,7 +120,7 @@ function SellsOfTheMonth() {
                 .slice(3, veshiNaProdaju.length)
                 .map((item, index) => {
                   return (
-                    <div key={index} className="GridVeshi" id="Secondary">
+                    <div key={index} className="GridVeshi">
                       <p>{item.name}</p>
                       <p>{item.Prize}</p>
                       <p>
@@ -143,9 +134,9 @@ function SellsOfTheMonth() {
                   );
                 })}
           </div>
-            <button className="seeMore" onClick={() => setSeeMore(!seeMore)}>
-              {seeMore ? "see Less" : "see More"}
-            </button>
+          <button className="seeMore" onClick={() => setSeeMore(!seeMore)}>
+            {seeMore ? "see Less" : "see More"}
+          </button>
         </div>
       </div>
     </>
@@ -158,16 +149,16 @@ function Sections() {
       <div style={{ marginTop: "6em" }}>
         <h1>All sections</h1>
         <div className="HolderForSections">
-          <div className="GridHolderForVeshi"
-          id="SectionsHolderForVeshi"
-          style={{gap:"3em"}}
+          <div
+            className="GridHolderForVeshi"
+            id="SectionsHolderForVeshi"
+            style={{ gap: "3em" }}
           >
             {veshiNaProdaju.map((item, index) => {
               return (
                 <div
                   key={index}
                   className="GridVeshiSections"
-                  
                   style={{
                     border: "5px solid var(--borderColor)",
                     textAlign: " center",
@@ -176,7 +167,7 @@ function Sections() {
                   }}
                 >
                   <p>{item.name}</p>
-                  
+
                   <img src={item.image} alt="Item on sale" />
                 </div>
               );
@@ -213,10 +204,13 @@ function CollectionOfStuff() {
   // }, []);
   return (
     <>
-      <div className="HolderForButtonAndMenu" style={{ marginTop: "6em" }}>
+      <div style={{ marginTop: "6em" }}>
         <h1> Most Searched</h1>
         <div className="HolderForSelling">
           <div className="HolderForVeshi">
+            <button className="NextItem" id="Left">
+              <FcNext style={{transform: "rotate(180deg)"}} />
+            </button>
             {veshiNaProdaju.map((item, index) => {
               return (
                 <div key={index} className="Veshi" style={Cursor}>
@@ -232,12 +226,11 @@ function CollectionOfStuff() {
                 </div>
               );
             })}
+            <button className="NextItem" id="Right">
+              <FcNext />
+            </button>
           </div>
         </div>
-        <button className="NextItem" style={NextItemButton}>
-          {" "}
-          <FcNext />{" "}
-        </button>
       </div>
     </>
   );
