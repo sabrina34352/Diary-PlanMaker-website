@@ -7,18 +7,20 @@ const footerStyle = {
   textAlign: "center",
 };
 
-const MainContainer={
-  display:"flex",
-  width:"100%",
-  justifyContent:"space-around",
-  flexWrap:"wrap"
-}
+const MainContainer = {
+  display: "flex",
+  width: "100%",
+  justifyContent: "space-around",
+  flexWrap: "wrap",
+};
+
+
 
 //main function
 function fotter() {
   return (
-    <footer className="footer">
-      <hr width="90%"/>
+    <div className="footer">
+      <hr width="90%" />
       <div style={footerStyle}>
         <div style={MainContainer}>
           <div>
@@ -68,7 +70,7 @@ function fotter() {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 }
 

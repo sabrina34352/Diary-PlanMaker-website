@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { FaUserSecret } from "react-icons/fa";
+import Profile from "./menustuff/profile";
 
 const MenuItems = [
   {
@@ -15,13 +16,8 @@ const MenuItems = [
     class: "nav-links",
   },
   {
-    title: "plans",
-    link: "plans",
-    class: "nav-links",
-  },
-  {
-    title: "profile",
-    link: "profile",
+    title: "cart",
+    link: "cart",
     class: "nav-links",
   },
   {
@@ -32,54 +28,107 @@ const MenuItems = [
 ];
 
 function DesktopMenu() {
+  const ref = useRef();
+  const [profileOpened, setprofileOpened] = useState(false);
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (profileOpened && ref.current && !ref.current.contains(e.target)) {
+        setprofileOpened(false);
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [profileOpened]);
+
   return (
-    <div className="HolderForMenu">
+    <div className="HolderForMenu" ref={ref}>
       <div id="MenuStuff">
         {MenuItems.map((item, index) => {
           return (
-            <button key={index} className={item.class}>
-              <Link to={item.link}>{item.title}</Link>
-            </button>
+            <Link to={item.link} key={index}>
+              <button
+                className={item.class}
+                onClick={() => {
+                  setprofileOpened(false);
+                }}
+              >
+                {item.title}
+              </button>
+            </Link>
           );
         })}
+        <button
+          className="nav-links"
+          onClick={() => {
+            setprofileOpened(!profileOpened);
+          }}
+        >
+          profile
+        </button>
       </div>
+
+      {profileOpened && <Profile />}
     </div>
   );
 }
 
-
-
 //main function
 function Navbar() {
   let [clicked, setClicked] = useState(false);
+  let [profileClicked, setprofileClicked] = useState(false);
   return (
     <>
       <div id="navbar">
         <div className="navbarChild">
           <FaUserSecret className="IncognitoLogo" />
           <div className="borgerHolder">
-            <button id="borger" onClick={() => setClicked(!clicked)}>
+            <button
+              id="borger"
+              onClick={() => {
+                setClicked(!clicked);
+                setprofileClicked(false);
+              }}
+            >
               {" "}
               borgar
             </button>
           </div>
 
           <DesktopMenu />
+          {/* MENU FOR PHONES */}
           {clicked && (
             <div className="HolderForMenuPhone">
               <div className="MenuStuffPhone">
                 {MenuItems.map((item, index) => {
                   return (
-                    <button
-                      key={index}
-                      className={item.class}
-                      onClick={() => setClicked(!clicked)}
-                    >
-                      <Link to={item.link}>{item.title}</Link>
-                    </button>
+                    <Link to={item.link} key={index}>
+                      <button
+                        className={item.class}
+                        onClick={() => {
+                          setClicked(!clicked);
+                          setprofileClicked(false);
+                        }}
+                      >
+                        {item.title}
+                      </button>
+                    </Link>
                   );
                 })}
+                <button
+                  className="nav-links"
+                  onClick={() => {
+                    setprofileClicked(!profileClicked);
+                  }}
+                >
+                  profile
+                </button>
               </div>
+              {profileClicked && <Profile />}
             </div>
           )}
         </div>

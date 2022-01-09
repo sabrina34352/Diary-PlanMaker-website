@@ -15,6 +15,25 @@
 
   }
 }
+#btn{
+  background-color:var(--mainColor);
+  cursor:pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--hoverColor);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--hoverColor);
+}
 
 /* NAVIGATION BAR CSS */
 body {
@@ -33,7 +52,7 @@ h1 {
 }
 .HolderForMenu {
   text-align: end;
-  margin: 0 5%;
+  margin: 0 10%;
 }
 #MenuStuff {
   display: inline-flex;
@@ -59,6 +78,21 @@ h1 {
   transform: scale(2.2);
   position: absolute;
   margin: 20px;
+}
+
+.profileHolder{
+  position:absolute;
+  border:5px solid var(--borderColor);
+  right:0;
+  margin:5%;
+  margin-top:1em;
+  text-align: start;
+  width:9em;
+  padding:10px;
+  background-color:var(--mainColor);
+  box-shadow:inset 0 0 3em 0 var(--hoverColor);
+  z-index:1;
+
 }
 
 #borger {
@@ -115,11 +149,13 @@ h1 {
 
 .GridHolderForSelling {
   border: 5px solid var(--borderColor);
+   box-shadow:inset 0 0 1em 0 var(--hoverColor);
   text-align: center;
 }
 .GridHolderForVeshi {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  
 }
 
 .GridHolderForVeshi div:hover {
@@ -164,6 +200,7 @@ h1 {
   overflow-y: hidden;
   scroll-behavior: smooth;
   
+  
 }
 
 .Veshi {
@@ -174,30 +211,7 @@ h1 {
   box-shadow:inset 0 0 1em 0 var(--hoverColor);
 }
 
-.NextItem {
-  background-color:var(--borderColor);
-  padding:20px;
-  border:2px solid var(--hoverColor);
-  position:absolute;
-  height:100%;
-  top:0;
-  right:0;
-  z-index: 1;
-}
 
-#Left{
-  left:0;
-  
-}
-
-.NextItem:active{
-  background-color:var(--hoverColor);
-  
-}
-
-.HolderForMenu::-webkit-scrollbar {
-  width: 0;
-}
 
 /* plans page */
 .shopcardInfo {
@@ -215,6 +229,13 @@ h1 {
   color: var(--fontColor);
   -webkit-text-stroke: 2px black;
 }
+
+/* REGISTER PAGE */
+.ForInput{
+  width:140px;
+  height:40px;
+}
+
 
 @media screen and (max-width: 760px) {
   .borgerHolder {
@@ -243,4 +264,8 @@ h1 {
   .NextItem{
     display:none;
   }
+  .Welcome{
+    font-size:40px;
+  }
 }
+

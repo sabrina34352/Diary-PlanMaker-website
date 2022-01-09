@@ -1,57 +1,50 @@
-import React from 'react'
+import React from "react";
 //CSS SHIT
-const forInput = {
-    borderRadius: "7px",
-    height: "30px"
-}
 
 const style = {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gridRowGap: "10px",
-    gridColumnGap: "10px",
-    margin: " 0 3%",
-    textAlign: "left",
-    maxWidth: "100px"
-}
-
-const forButton = {
-    display: "flex",
-    alignItems: "right",
-    margin: "0 auto",
-    padding: "5px 30px",
-    backgroundColor: "aqua"
-}
+  display: "grid",
+  gridTemplateColumns: "repeat(2, 5em)",
+  gap: "10px",
+  textAlign: "left",
+};
 
 //JSX SHIT
-var nameInput = <input type="text" id="UserName" style = {forInput}placeholder="Enter your name"/>;
-var surnameInput = <input type="text" id="UserSurname" style = {forInput}placeholder="Enter your surname"/>;
-var ageInput = <input type="number" id="UserAge" style = {forInput}placeholder="Enter your age"/>
-var emailInput=<input type="text" id = "UserEmail" style = {forInput}placeholder='Enter Email'/>
-var EnterButton = <button style={forButton}> Enter</button>
- 
+
+var Input = (
+  <input
+    type="text"
+    id="UserEmail"
+    className="ForInput"
+    placeholder="Enter Info"
+  />
+);
+
 //main function
-function Register() {
-    return (
-        <div>
+function Register({authorised}) {
+  return (
+    <>
+      <div >
+        <div className="holderForSigns">
+          <div>
             <h1>signing IN</h1>
-            <div style={style}>  
-                <p className = "nandsn" > Name: </p>
-                {nameInput}
+            <div style={style}>
+              <p className="ForInput"> Name: </p>
+              {Input}
 
-                <p className="nandsn">Surname:</p>
-                {surnameInput}
-            
-                <p className="nandsn">Age:</p>
-                {ageInput}
+              <p className="ForInput">Surname:</p>
+              {Input}
 
-                
-                <p className="nandsn">Email:</p>  
-                {emailInput}
+              <p className="ForInput">Age:</p>
+              {Input}
+
+              <p className="ForInput">Email:</p>
+              {Input}
             </div>
-            {EnterButton}
+          </div>
         </div>
-    )
+      </div>
+    </>
+  );
 }
 
-export default Register
+export default Register;

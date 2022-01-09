@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../App.css";
 import Photo from "../../photos/night-vision-goggles-isolated-on-260nw-31342912.jpg";
-import { FcNext } from "react-icons/fc";
+import { FaUserSecret } from "react-icons/fa";
 
 const veshiNaProdaju = [
   {
@@ -62,7 +62,6 @@ const buttonMinimalStyle = {
 };
 
 const Font = {
-  
   fontSize: "20px",
 };
 
@@ -95,7 +94,7 @@ function SellsOfTheMonth() {
   const [seeMore, setSeeMore] = useState(false);
   return (
     <>
-      <div style={{ marginTop: "6em" }}>
+      <div style={{ marginTop: "3em" }}>
         <h1>Best Sells Of the Month</h1>
         <div className="GridHolderForSelling">
           <div className="GridHolderForVeshi">
@@ -146,7 +145,7 @@ function SellsOfTheMonth() {
 function Sections() {
   return (
     <>
-      <div style={{ marginTop: "6em" }}>
+      <div style={{ marginTop: "3em" }}>
         <h1>All sections</h1>
         <div className="HolderForSections">
           <div
@@ -182,35 +181,14 @@ function Sections() {
 const Cursor = {
   cursor: "pointer",
 };
-// function Scrolling(sizeOfWindow, elementsSize) {
-//   if(sizeOfWindow &&elementsSize){
-//     console.log(elementsSize.current.getBoundingClientRect().width)
-//   }
-// }
-// const additionalLine = <p>{item.Description.slice(100, item.Description.length)}</p>
 
 function CollectionOfStuff() {
-  // const [width, setWidth] = useState(null);
-  // const [InsideWidth, setInsideWidth] = useState(0);
-  // const RefForInside = React.createRef();
-  // const myRef = React.createRef();
-
-  // useEffect(() => {
-  //   if (myRef.current) {
-  //     setWidth(myRef);
-  //     setInsideWidth(RefForInside);
-  //   }
-
-  // }, []);
   return (
     <>
-      <div style={{ marginTop: "6em" }}>
+      <div style={{ marginTop: "3em" }}>
         <h1> Most Searched</h1>
         <div className="HolderForSelling">
           <div className="HolderForVeshi">
-            <button className="NextItem" id="Left">
-              <FcNext style={{transform: "rotate(180deg)"}} />
-            </button>
             {veshiNaProdaju.map((item, index) => {
               return (
                 <div key={index} className="Veshi" style={Cursor}>
@@ -226,9 +204,6 @@ function CollectionOfStuff() {
                 </div>
               );
             })}
-            <button className="NextItem" id="Right">
-              <FcNext />
-            </button>
           </div>
         </div>
       </div>
@@ -236,17 +211,49 @@ function CollectionOfStuff() {
   );
 }
 
+const divStyle={
+  marginTop:"20px",
+  textAlign:"end"
+}
+
+function Scrollbtn() {
+  let btnStyle = {
+    width: "100%",
+    padding:"10px",
+    borderRadius:"25px"
+  };
+  return (
+      <button
+        style={btnStyle}
+        className="seeMore"
+        onClick={() => {
+          window.scrollTo(0, 0);
+        }}
+      >
+        scroll to top
+      </button>
+  );
+}
+
 function home() {
   return (
-    <div className="wrapper" style={{ margin: "5%" }}>
-      <SearchBar />
-      <h2 className="Welcome">
-        <b>online shop for hackers</b>
-      </h2>
-      <SellsOfTheMonth />
-      <CollectionOfStuff />
-      <Sections />
-    </div>
+    <>
+      <div className="wrapper">
+        <SearchBar />
+        <h2 className="Welcome">
+          <div>
+            <b>online shop for hackers </b>
+            <FaUserSecret />
+          </div>
+        </h2>
+        <SellsOfTheMonth />
+        <CollectionOfStuff />
+        <Sections />
+        <div style={divStyle}>
+        <Scrollbtn/>
+        </div>
+      </div>
+    </>
   );
 }
 

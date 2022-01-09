@@ -3,24 +3,24 @@ import "../../App.css";
 import { ImCart } from "react-icons/im";
 import { Link } from "react-router-dom";
 
-const cartCSS={
-    border:"2px solid var(--borderColor)",
-    borderRadius:"15px",
-    padding:"20px",
-    color:"var(--fontColor)",
-    boxShadow:"inset 0 0 1em 0 var(--borderColor)",
-    fontSize:"20px",
-    flex:1
-}
+export const cartCSS = {
+  border: "2px solid var(--borderColor)",
+  borderRadius: "15px",
+  padding: "20px",
+  color: "var(--fontColor)",
+  boxShadow: "inset 0 0 1em 0 var(--borderColor)",
+  fontSize: "20px",
+  flex: 1,
+};
 
-const buttonStyle={
-    borderRadius:"10px",
-}
+const buttonStyle = {
+  borderRadius: "10px",
+};
 
-function plans() {
+export function Cart() {
   return (
     <>
-      <div style={{ margin: "5%" }}>
+      <div >
         <h1 className="plans"> {ImCart()} hacker cart </h1>
         <div style={cartCSS}>your cart is empty</div>
         <div className="shopcardInfo">
@@ -29,7 +29,9 @@ function plans() {
         </div>
         <div style={{ textAlign: "center" }}>
           <button style={buttonStyle} className="seeMore">
-            <Link to="/home" style={{textDecoration:"none"}}>get shopping</Link>
+            <Link to="/home" style={{ textDecoration: "none" }}>
+              get shopping
+            </Link>
           </button>
         </div>
       </div>
@@ -37,4 +39,3 @@ function plans() {
   );
 }
 
-export default plans;
