@@ -1,20 +1,19 @@
 //rfce
 import React from "react";
-import { Link } from "react-router-dom";
+import {userInfo} from "./register";
 
 function Profile() {
-  
   return (
     <>
       <div>
         <div className="profileHolder">
-          <p>name: none</p>
+          <p>name: {userInfo[0]}</p>
           <hr />
-          <p>surname: none</p>
+          <p>surname: {userInfo[1]}</p>
           <hr />
-          <p>email: none</p>
-          
-          
+          <p>age: {userInfo[2]}</p>
+          <hr />
+          <p>email: {userInfo[3]}</p>
         </div>
       </div>
     </>

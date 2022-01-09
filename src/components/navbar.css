@@ -12,12 +12,15 @@
   }
   100% {
     height: 374px;
-
   }
 }
-#btn{
-  background-color:var(--mainColor);
-  cursor:pointer;
+#btn {
+  box-shadow: inset 0 0 1em 0 var(--hoverColor);
+  background-color: var(--mainColor);
+  cursor: pointer;
+}
+#btn:hover {
+  background-color: var(--borderColor);
 }
 
 /* width */
@@ -42,7 +45,9 @@ body {
 }
 #navbar {
   background-color: var(--borderColor);
-  position: relative;
+  min-width: 100%;
+  position: fixed;
+  z-index: 1;
 }
 
 h1 {
@@ -71,7 +76,7 @@ h1 {
 }
 
 .nav-links:hover {
-  background-color: var(--mainColor);
+  background-color: var(--hoverColor);
 }
 
 .IncognitoLogo {
@@ -80,19 +85,19 @@ h1 {
   margin: 20px;
 }
 
-.profileHolder{
-  position:absolute;
-  border:5px solid var(--borderColor);
-  right:0;
-  margin:5%;
-  margin-top:1em;
+.profileHolder {
+  position: absolute;
+  border: 5px solid var(--borderColor);
+  right: 0;
+  margin: 5%;
+  margin-top: 1em;
   text-align: start;
-  width:9em;
-  padding:10px;
-  background-color:var(--mainColor);
-  box-shadow:inset 0 0 3em 0 var(--hoverColor);
-  z-index:1;
-
+  width: 10em;
+  padding: 10px;
+  background-color: var(--mainColor);
+  box-shadow: inset 0 0 3em 0 var(--hoverColor);
+  z-index: 1;
+  word-wrap: break-word;
 }
 
 #borger {
@@ -118,6 +123,10 @@ h1 {
   background-color: var(--borderColor);
   z-index: 1;
 }
+/* REGISTRATIONS */
+.holderForSigns {
+  text-align: center;
+}
 
 /* HOME PAGE CSS */
 
@@ -132,12 +141,12 @@ h1 {
 #Searching {
   width: 100%;
   height: 30px;
-  color: var(--mainColor)
+  color: var(--mainColor);
 }
 
 #searchButton {
   position: absolute;
-  color:var(--fontColor);
+  color: var(--fontColor);
   right: 0;
   background-color: var(--borderColor);
 }
@@ -149,13 +158,12 @@ h1 {
 
 .GridHolderForSelling {
   border: 5px solid var(--borderColor);
-   box-shadow:inset 0 0 1em 0 var(--hoverColor);
+  box-shadow: inset 0 0 1em 0 var(--hoverColor);
   text-align: center;
 }
 .GridHolderForVeshi {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  
 }
 
 .GridHolderForVeshi div:hover {
@@ -171,7 +179,6 @@ h1 {
 .GridVeshiSections img {
   width: 90%;
 }
-
 
 .seeMore {
   color: var(--fontColor);
@@ -199,19 +206,15 @@ h1 {
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  
-  
 }
 
 .Veshi {
   border: 2px solid var(--borderColor);
   padding: 0 14px;
 }
-.Veshi:hover{
-  box-shadow:inset 0 0 1em 0 var(--hoverColor);
+.Veshi:hover {
+  box-shadow: inset 0 0 1em 0 var(--hoverColor);
 }
-
-
 
 /* plans page */
 .shopcardInfo {
@@ -227,15 +230,14 @@ h1 {
   padding: 40px;
   font-size: 50px;
   color: var(--fontColor);
-  -webkit-text-stroke: 2px black;
+  -webkit-text-stroke: 2px var(--mainColor);
 }
 
 /* REGISTER PAGE */
-.ForInput{
-  width:140px;
-  height:40px;
+.ForInput {
+  width: 140px;
+  height: 40px;
 }
-
 
 @media screen and (max-width: 760px) {
   .borgerHolder {
@@ -261,11 +263,10 @@ h1 {
     margin: 0;
   }
 
-  .NextItem{
-    display:none;
+  .NextItem {
+    display: none;
   }
-  .Welcome{
-    font-size:40px;
+  .Welcome {
+    font-size: 40px;
   }
 }
-

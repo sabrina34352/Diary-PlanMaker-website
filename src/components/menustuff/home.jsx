@@ -68,7 +68,7 @@ const Font = {
 function SearchBar() {
   const [searchInfo, setSearchInfo] = useState(" ");
   return (
-    <div>
+    <>
       <div className="SearchThings">
         <input
           style={Font}
@@ -86,7 +86,7 @@ function SearchBar() {
           Search
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -216,12 +216,13 @@ const divStyle={
   textAlign:"end"
 }
 
+const btnStyle = {
+  width: "100%",
+  padding:"10px",
+  borderRadius:"25px",
+  color:"var(--fontColor)"
+};
 function Scrollbtn() {
-  let btnStyle = {
-    width: "100%",
-    padding:"10px",
-    borderRadius:"25px"
-  };
   return (
       <button
         style={btnStyle}

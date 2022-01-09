@@ -11,15 +11,16 @@ const MenuItems = [
     class: "nav-links",
   },
   {
-    title: "Info",
-    link: "Info",
-    class: "nav-links",
-  },
-  {
     title: "cart",
     link: "cart",
     class: "nav-links",
   },
+  {
+    title: "Info",
+    link: "Info",
+    class: "nav-links",
+  },
+
   {
     title: "register",
     link: "register",
@@ -84,7 +85,6 @@ function Navbar() {
   return (
     <>
       <div id="navbar">
-        <div className="navbarChild">
           <FaUserSecret className="IncognitoLogo" />
           <div className="borgerHolder">
             <button
@@ -132,7 +132,6 @@ function Navbar() {
             </div>
           )}
         </div>
-      </div>
     </>
   );
 }
