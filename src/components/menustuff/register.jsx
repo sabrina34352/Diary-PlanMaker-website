@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 //CSS SHIT
 
 const style = {
@@ -9,7 +9,7 @@ const style = {
   justifyContent: "center",
 };
 
-export var userInfo = {};
+export var userInfo = [];
 
 //JSX SHIT
 
@@ -22,69 +22,63 @@ const btnStyle = {
   boxShadow: "inset 0 0 1em 0 var(--hoverColor)",
   cursor: "pointer",
 };
+
 //main function
 function Register() {
+  const nameRef = useRef();
+  const surnameRef = useRef();
+  const ageRef = useRef();
+  const emailRef = useRef();
+
+  const submit = (event) => {
+    event.preventDefault();
+    userInfo[0] = nameRef.current.value;
+    userInfo[1] = surnameRef.current.value;
+    userInfo[2] = ageRef.current.value;
+    userInfo[3] = emailRef.current.value;
+  };
   return (
     <>
-      <div>
-        <div className="holderForSigns">
+      <div className="holderForSigns">
+        <form onSubmit={submit}>
           <h1>signing IN</h1>
           <div style={style}>
             <p className="ForInput"> Name: </p>
             <input
+              ref={nameRef}
               type="text"
-              id="0"
               className="ForInput"
               placeholder="Enter Info"
               style={btnStyle}
-              onChange={(event) => {
-                userInfo[0] = event.target.value;
-              }}
             />
 
             <p className="ForInput">Surname:</p>
             <input
-              type="1"
-              id="UserEmail"
+              type="text"
+              ref={surnameRef}
               className="ForInput"
               placeholder="Enter Info"
               style={btnStyle}
-              onChange={(event) => {
-                userInfo[1] = event.target.value;
-              }}
             />
             <p className="ForInput">Age:</p>
             <input
-              type="3"
-              id="UserEmail"
+              type="number"
+              ref={ageRef}
               className="ForInput"
               placeholder="Enter Info"
               style={btnStyle}
-              onChange={(event) => {
-                userInfo[2] = event.target.value;
-              }}
             />
             <p className="ForInput">Email:</p>
             <input
-              type="2"
-              id="UserEmail"
+              type="text"
+              ref={emailRef}
               className="ForInput"
               placeholder="Enter Info"
               style={btnStyle}
-              onChange={(event) => {
-                userInfo[3] = event.target.value;
-              }}
             />
           </div>
-          <button
-            style={btnStyle}
-            onClick={() => {
-              console.log(userInfo);
-            }}
-          >
-            sign in
-          </button>
-        </div>
+          <button style={btnStyle}>sign in</button>
+        </form>
       </div>
     </>
   );

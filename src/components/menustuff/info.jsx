@@ -3,8 +3,9 @@ import "../../App.css";
 
 const styling = {
   display: "flex",
-  gap: "5em",
-  fontSize:"15px"
+  gap: "10%",
+  fontSize: "15px",
+  textAlign: "start",
 };
 
 function info() {
