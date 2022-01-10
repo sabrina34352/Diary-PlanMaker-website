@@ -1,6 +1,6 @@
 //rfce
 import React from "react";
-import {userInfo} from "./register";
+import { userInfo } from "./register";
 
 function Profile() {
   return (

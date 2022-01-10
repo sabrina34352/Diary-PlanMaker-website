@@ -196,6 +196,31 @@ h1 {
 
 /* FLEXBOX PLACE  */
 
+.btnScroll {
+  background-color: var(--mainColor);
+  height: 90px;
+  width: 90px;
+  top: 120px;
+  position: sticky;
+  font-size: 30px;
+  border: 2px solid var(--borderColor);
+  border-radius: 15px;
+}
+.btnScroll:hover {
+  box-shadow: inset 0 0 8px 0 var(--hoverColor);
+}
+.btnScroll::before {
+  content: ">";
+}
+
+#btnLeft {
+  left: 0;
+  transform: rotate(180deg);
+}
+#btnRight {
+  right: 0;
+}
+
 .HolderForSelling {
   position: relative;
 }
@@ -268,5 +293,8 @@ h1 {
   }
   .Welcome {
     font-size: 40px;
+  }
+  .btnScroll {
+    display: none;
   }
 }

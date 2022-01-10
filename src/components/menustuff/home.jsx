@@ -189,6 +189,17 @@ function CollectionOfStuff() {
         <h1> Most Searched</h1>
         <div className="HolderForSelling">
           <div className="HolderForVeshi">
+            <button
+              id="btnLeft"
+              className="btnScroll"
+              onClick={(event) => {
+                event.target.parentElement.scrollBy(
+                  -event.target.parentElement.children[1].getBoundingClientRect()
+                    .width,
+                  0
+                );
+              }}
+            ></button>
             {veshiNaProdaju.map((item, index) => {
               return (
                 <div key={index} className="Veshi" style={Cursor}>
@@ -204,6 +215,17 @@ function CollectionOfStuff() {
                 </div>
               );
             })}
+            <button
+              id="btnRight"
+              className="btnScroll"
+              onClick={(event) => {
+                event.target.parentElement.scrollBy(
+                  event.target.parentElement.children[1].getBoundingClientRect()
+                    .width,
+                  0
+                );
+              }}
+            ></button>
           </div>
         </div>
       </div>
@@ -211,28 +233,28 @@ function CollectionOfStuff() {
   );
 }
 
-const divStyle={
-  marginTop:"20px",
-  textAlign:"end"
-}
+const divStyle = {
+  marginTop: "20px",
+  textAlign: "end",
+};
 
 const btnStyle = {
   width: "100%",
-  padding:"10px",
-  borderRadius:"25px",
-  color:"var(--fontColor)"
+  padding: "10px",
+  borderRadius: "25px",
+  color: "var(--fontColor)",
 };
 function Scrollbtn() {
   return (
-      <button
-        style={btnStyle}
-        className="seeMore"
-        onClick={() => {
-          window.scrollTo(0, 0);
-        }}
-      >
-        scroll to top
-      </button>
+    <button
+      style={btnStyle}
+      className="seeMore"
+      onClick={() => {
+        window.scrollTo(0, 0);
+      }}
+    >
+      scroll to top
+    </button>
   );
 }
 
@@ -251,7 +273,7 @@ function home() {
         <CollectionOfStuff />
         <Sections />
         <div style={divStyle}>
-        <Scrollbtn/>
+          <Scrollbtn />
         </div>
       </div>
     </>

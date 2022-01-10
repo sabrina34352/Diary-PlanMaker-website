@@ -11,6 +11,7 @@ export const cartCSS = {
   boxShadow: "inset 0 0 1em 0 var(--borderColor)",
   fontSize: "20px",
   flex: 1,
+  backgroundColor:"var(--mainColor)"
 };
 
 const buttonStyle = {
@@ -20,7 +21,7 @@ const buttonStyle = {
 export function Cart() {
   return (
     <>
-      <div >
+      <div>
         <h1 className="plans"> {ImCart()} hacker cart </h1>
         <div style={cartCSS}>your cart is empty</div>
         <div className="shopcardInfo">
@@ -38,4 +39,3 @@ export function Cart() {
     </>
   );
 }
-

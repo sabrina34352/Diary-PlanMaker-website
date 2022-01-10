@@ -20,6 +20,7 @@ const btnStyle = {
   borderRadius: "10px",
   padding: "8px 15px",
   boxShadow: "inset 0 0 1em 0 var(--hoverColor)",
+  cursor: "pointer",
 };
 //main function
 function Register() {
