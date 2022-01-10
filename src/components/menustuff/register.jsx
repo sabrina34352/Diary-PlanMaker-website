@@ -8,11 +8,9 @@ const style = {
   textAlign: "left",
   justifyContent: "center",
 };
-
 export var userInfo = [];
 
 //JSX SHIT
-
 const btnStyle = {
   outline: "none",
   backgroundColor: "var(--mainColor)",
