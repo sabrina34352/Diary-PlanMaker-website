@@ -46,23 +46,24 @@ body {
 }
 #navbar {
   background-color: var(--borderColor);
+  height: 3em;
   min-width: 100%;
   position: fixed;
   z-index: 1;
+  text-align: end;
 }
 
-h1 {
-  padding-left: 2%;
-  font-size: 40px;
-  margin: 15px 0;
-}
 .HolderForMenu {
   text-align: end;
-  margin: 0 10%;
+  margin: 1em 10%;
 }
-#MenuStuff {
-  display: inline-flex;
-  margin-top: 20px;
+.HolderForMenuPhone {
+  display: none;
+  width: 10em;
+  text-align: center;
+  background-color: var(--mainColor);
+  box-shadow: inset 0 0 1em 0 var(--hoverColor);
+  margin: 0 10%;
 }
 
 .nav-links {
@@ -79,11 +80,18 @@ h1 {
 .nav-links:hover {
   background-color: var(--hoverColor);
 }
-
+/* 
 .IncognitoLogo {
-  transform: scale(2.2);
-  position: absolute;
-  margin: 20px;
+  
+} */
+
+#borger {
+  color: var(--fontColor);
+  background-color: var(--mainColor);
+  font-size: 20px;
+  padding: 7px;
+  display: none;
+  margin: 0 10%;
 }
 
 .profileHolder {
@@ -100,30 +108,6 @@ h1 {
   z-index: 1;
   word-wrap: break-word;
 }
-
-#borger {
-  color: var(--fontColor);
-  background-color: var(--mainColor);
-  font-size: 20px;
-  padding: 8px;
-}
-.borgerHolder {
-  display: none;
-  text-align: end;
-}
-
-.MenuStuffPhone {
-  text-align: end;
-  display: none;
-  position: relative;
-}
-.HolderForMenuPhone {
-  text-align: end;
-  position: absolute;
-  width: 100%;
-  background-color: var(--borderColor);
-  z-index: 1;
-}
 /* REGISTRATIONS */
 .holderForSigns {
   text-align: center;
@@ -137,6 +121,11 @@ h1 {
   position: relative;
   display: flex;
   margin: 25px auto;
+}
+h1 {
+  padding-left: 2%;
+  font-size: 40px;
+  margin: 15px 0;
 }
 
 #Searching {
@@ -266,17 +255,18 @@ h1 {
 }
 
 @media screen and (max-width: 760px) {
-  .borgerHolder {
-    display: block;
-  }
-
-  .MenuStuffPhone {
-    display: inline-grid;
+  #borger {
+    display: inline-block;
   }
 
   .HolderForMenu {
     display: none;
   }
+
+  .HolderForMenuPhone {
+    display: inline-grid;
+  }
+
   .GridHolderForVeshi {
     grid-template-columns: 1fr;
     margin: 20px;

@@ -28,110 +28,115 @@ const MenuItems = [
   },
 ];
 
-function DesktopMenu() {
+
+//main function
+function Navbar() {
   const ref = useRef();
+  const refToMenu = React.createRef();
   const [profileOpened, setprofileOpened] = useState(false);
+  const [clicked, setClicked] = useState(false);
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
       if (profileOpened && ref.current && !ref.current.contains(e.target)) {
         setprofileOpened(false);
       }
     };
-
     document.addEventListener("mousedown", checkIfClickedOutside);
-
     return () => {
       // Cleanup the event listener
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [profileOpened]);
 
-  return (
-    <div className="HolderForMenu" ref={ref}>
-      <div id="MenuStuff">
-        {MenuItems.map((item, index) => {
-          return (
-            <Link to={item.link} key={index}>
-              <button
-                className={item.class}
-                onClick={() => {
-                  setprofileOpened(false);
-                }}
-              >
-                {item.title}
-              </button>
-            </Link>
-          );
-        })}
-        <button
-          className="nav-links"
-          onClick={() => {
-            setprofileOpened(!profileOpened);
-          }}
-        >
-          profile
-        </button>
-      </div>
+  function DesktopMenu() {
+    return (
+      <>
+        <div className="HolderForMenu" ref={ref}>
+          
+          {MenuItems.map((item, index) => {
+            return (
+              <Link to={item.link} key={index}>
+                <button
+                  className={item.class}
+                  onClick={() => {
+                    setprofileOpened(false);
+                  }}
+                >
+                  {item.title}
+                </button>
+              </Link>
+            );
+          })}
+          <button
+            className="nav-links"
+            onClick={() => {
+              setprofileOpened(!profileOpened);
+            }}
+          >
+            profile
+          </button>
+        </div>
+          
+      </>
+    );
+  }
+  
 
-      {profileOpened && <Profile />}
-    </div>
-  );
-}
-
-//main function
-function Navbar() {
-  let [clicked, setClicked] = useState(false);
-  let [profileClicked, setprofileClicked] = useState(false);
+  function PhoneMenu(){
+    return (
+      <>
+        <div className="HolderForMenuPhone" ref={ref}>
+          {MenuItems.map((item, index) => {
+            return (
+              <Link to={item.link} key={index}>
+                <button
+                  className={item.class}
+                  onClick={() => {
+                    setprofileOpened(false);
+                    setClicked(!clicked);
+                  }}
+                >
+                  {item.title}
+                </button>
+              </Link>
+            );
+          })}
+          <button
+            className="nav-links"
+            onClick={() => {
+              setprofileOpened(!profileOpened);
+              setClicked(!clicked);
+            }}
+          >
+            profile
+          </button>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <div id="navbar">
-          <FaUserSecret className="IncognitoLogo" />
-          <div className="borgerHolder">
-            <button
-              id="borger"
-              onClick={() => {
-                setClicked(!clicked);
-                setprofileClicked(false);
-              }}
-            >
-              {" "}
-              borgar
-            </button>
+        
+        <button
+          id="borger"
+          onClick={() => {
+            setprofileOpened(false);
+            setClicked(!clicked);
+          }}
+        >
+          {" "}
+          borgar
+        </button>
+        <DesktopMenu />
+        {clicked && (
+          <div className="PhoneMenuHolder" ref={refToMenu}>
+            <PhoneMenu />
           </div>
+        )}
 
-          <DesktopMenu />
-          {/* MENU FOR PHONES */}
-          {clicked && (
-            <div className="HolderForMenuPhone">
-              <div className="MenuStuffPhone">
-                {MenuItems.map((item, index) => {
-                  return (
-                    <Link to={item.link} key={index}>
-                      <button
-                        className={item.class}
-                        onClick={() => {
-                          setClicked(!clicked);
-                          setprofileClicked(false);
-                        }}
-                      >
-                        {item.title}
-                      </button>
-                    </Link>
-                  );
-                })}
-                <button
-                  className="nav-links"
-                  onClick={() => {
-                    setprofileClicked(!profileClicked);
-                  }}
-                >
-                  profile
-                </button>
-              </div>
-              {profileClicked && <Profile />}
-            </div>
-          )}
-        </div>
+        {profileOpened && <Profile />}
+      </div>
     </>
   );
 }
