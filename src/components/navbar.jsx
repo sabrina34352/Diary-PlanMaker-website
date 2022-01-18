@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./navbar.css";
+
 import { Link } from "react-router-dom";
-import { FaUserSecret } from "react-icons/fa";
 import Profile from "./menustuff/profile";
 
 const MenuItems = [
@@ -125,8 +125,7 @@ function Navbar() {
             setClicked(!clicked);
           }}
         >
-          {" "}
-          borgar
+          ==
         </button>
         <DesktopMenu />
         {clicked && (

@@ -2,6 +2,7 @@ import React from "react";
 import "../../App.css";
 import { ImCart } from "react-icons/im";
 import { Link } from "react-router-dom";
+import "./Cart.css"
 
 export const cartCSS = {
   border: "2px solid var(--borderColor)",

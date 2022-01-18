@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import "./register.css";
 //CSS SHIT
 
 const style = {

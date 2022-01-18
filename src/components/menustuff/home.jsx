@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../App.css";
 import Photo from "../../photos/night-vision-goggles-isolated-on-260nw-31342912.jpg";
 import { FaUserSecret } from "react-icons/fa";
+import "./Home.css"
 
 const divStyle = {
   marginTop: "20px",
